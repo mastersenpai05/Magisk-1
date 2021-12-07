@@ -212,7 +212,8 @@ fi
 
 ui_print "- Repacking boot image"
 ./magiskboot repack "$BOOTIMAGE" || abort "! Unable to repack boot image"
-
+ui_print "- Rebuild for K40G & X3 GT"
+./magiskboot hexpatch new-boot.img 0300000000617662746F6F6C20 0000000000617662746F6F6C20
 # Sign chromeos boot
 $CHROMEOS && sign_chromeos
 
